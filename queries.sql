@@ -81,7 +81,7 @@ order by average_income asc;
 	from sales as s
 	group by weekday_num, weekday_text
 	)
-select distinct on (i.weekday_num, name) name, weekday_text as weekday , income -- вывод уникальных значений уже отсортированных данных
+select distinct on (i.weekday_num, name) name, weekday_text as weekday , round(income, 0) as income -- вывод уникальных значений уже отсортированных данных
 from income_table as i
 join day_of_week as d
 on i.weekday_num = d.weekday_num;
